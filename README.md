@@ -55,16 +55,16 @@ var Polyloader = new bqPolyloader({
         'elements/pizza/pizza-toppings.html',
         'elements/routing.html'
         ]      
-      },
-      login : {
-        priority: 2,
-        elements : [
-          'bower_components/paper-styles/paper-styles-classes.html',
-          'bower_components/iron-flex-layout/classes/iron-flex-layout.html',
-          'bower_components/paper-drawer-panel/paper-drawer-panel.html'
-          ]      
-        }
+    },
+    login : {
+      priority: 2,
+      elements : [
+        'bower_components/paper-styles/paper-styles-classes.html',
+        'bower_components/iron-flex-layout/classes/iron-flex-layout.html',
+        'bower_components/paper-drawer-panel/paper-drawer-panel.html'
+        ]      
     }
+  }
 });
 
 </script>
