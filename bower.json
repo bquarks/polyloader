@@ -1,7 +1,7 @@
 {
   "name": "polyloader",
   "description" : "Polymer elements lazy loader and Webcomponents support detection.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "dist/bq-polyloader.min.js",
   "ignore": [
     "**/.*",
