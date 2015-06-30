@@ -6,7 +6,7 @@ var bqPolyloader = function(options) {
 
     this.supportWc = this._wcSupport();
     this.urls = {};
-    this.urls.wclibrary = options.wclibraryurl || '';
+    this.urls.wclibrary = options.wcLibraryUrl || '';
     this.currentPage = 'main';
     this.pages = options.pages || [];
     this._firstLoad = true;
@@ -38,18 +38,22 @@ bqPolyloader.prototype._wcSupport = function() {
 //
 bqPolyloader.prototype._loadWC = function() {
 
-    var wcPoly = document.createElement('script');
-    wcPoly.src = this.urls.wclibrary;
-    wcPoly.onload = this._lazyLoadPolymerAndElements();
-    document.getElementsByTagName('head')[0].appendChild(wcPoly);
+    if(!this.urls.wclibrary){
+        console.log('Polyloader | Error no webcomponents library url');
+    }else{
+        var wcPoly = document.createElement('script');
+        wcPoly.src = this.urls.wclibrary;
+        document.getElementsByTagName('head')[0].appendChild(wcPoly);
+        this._lazyLoadPolymerAndElements();
+    }
+
+    
 };
 //
 // Lazy loader elements
 //
 bqPolyloader.prototype._lazyLoadPolymerAndElements = function() {
     
-    var self = this;
-
     // Let's use Shadow DOM if we have it, because awesome.
     window.Polymer = window.Polymer || {};
 
@@ -60,11 +64,11 @@ bqPolyloader.prototype._lazyLoadPolymerAndElements = function() {
     
     this.coreComponents.forEach(function(elementURL) {
 
-        var elImport = self.document.createElement('link');
+        var elImport = document.createElement('link');
         elImport.rel = 'import';
         elImport.href = elementURL;
 
-        self.document.head.appendChild(elImport);
+        document.head.appendChild(elImport);
 
     });
    
@@ -73,17 +77,15 @@ bqPolyloader.prototype._lazyLoadPolymerAndElements = function() {
 // Load Pages Elements method
 //
 bqPolyloader.prototype._loadPagesElements = function() {
-    
-    var self = this;
 
     for(var kk = 0; kk < this.pagesSortedByPriority.length; kk++){
         for (var i = this.pagesSortedByPriority[kk][1].elements.length - 1; i >= 0; i--) {
             
-            var elImport = self.document.createElement('link');
+            var elImport = document.createElement('link');
             elImport.rel = 'import';
             elImport.href = this.pagesSortedByPriority[kk][1].elements[i];
 
-            self.document.head.appendChild(elImport);
+            document.head.appendChild(elImport);
         }
     }
 };
