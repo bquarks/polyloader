@@ -22,8 +22,7 @@ Basic usage is as follows:
 
  `index.html`:
 
-    ```javascript 
-
+```javascript 
 <script type="text/javascript" src="scripts/polyloader.js"></script>
 <script type="text/javascript">
 window.Polyloader = new bqPolyloader({
@@ -69,10 +68,7 @@ window.Polyloader = new bqPolyloader({
 });
 
 </script>
-
-
-
-    ```
+```
 
 For advanced usage, see the documentation.
 
