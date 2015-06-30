@@ -14,7 +14,7 @@ Using Bower:
 
     bower install bq-polyloader
 
-Or grab the [source](https://github.com/bquarks/Polyloaderdist/bq-polyloader.js) ([minified](https://github.com/bquarks/Polyloader/dist/bq-polyloader.min.js)).
+Or grab the [source](https://github.com/bquarks/Polyloader/dist/bq-polyloader.js) ([minified](https://github.com/bquarks/Polyloader/dist/bq-polyloader.min.js)).
 
 ## Usage
 
@@ -74,7 +74,7 @@ For advanced usage, see the documentation.
 
 ## Documentation
 
-Start with `docs/MAIN.md`.
+Start with `docs/MAIN.md`. [go](https://github.com/bquarks/Polyloader/docs/MAIN.md)
 
 ## Contributing
 
