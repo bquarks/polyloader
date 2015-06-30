@@ -25,7 +25,7 @@ Basic usage is as follows:
 ```javascript 
 <script type="text/javascript" src="scripts/polyloader.js"></script>
 <script type="text/javascript">
-window.Polyloader = new bqPolyloader({
+var Polyloader = new bqPolyloader({
   wcLibraryUrl : 'bower_components/webcomponentsjs/webcomponents.min.js',
   coreComponents : [
     'bower_components/paper-styles/paper-styles-classes.html',
@@ -67,6 +67,11 @@ window.Polyloader = new bqPolyloader({
     }
 });
 
+</script>
+
+// When you want to change route and import route/page relative elements:
+<script type="text/javascript">
+Polyloader.loadPage('login');
 </script>
 ```
 
