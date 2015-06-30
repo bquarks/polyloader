@@ -1,4 +1,4 @@
-
+/* global document */
 "use strict";
 
 // Base function.

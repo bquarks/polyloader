@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/bquarks/Polyloader.git"
   },
-  "keywords": ['Polymer','Lazyload', 'loader', 'lazy', 'elements', 'bquarks'],
+  "keywords": ["Polymer","Lazyload", "loader", "lazy", "elements", "bquarks"],
   "author": "Jorge Serrano",
   "license": "MIT",
   "readmeFilename": "README.md",

@@ -37,13 +37,12 @@
 
 
 
-
+/* global document */
 "use strict";
 
 // Base function.
 var bqPolyloader = function(options) {
 
-    this.document = window.document || {};
     this.supportWc = this._wcSupport();
     this.urls = {};
     this.urls.wclibrary = options.wclibraryurl || '';
@@ -57,7 +56,7 @@ var bqPolyloader = function(options) {
     this._sortByPriority();
 
     // load webcomponents if necessary
-    if (this.suppportWc === false) {
+    if (this.supportWc === false) {
         this._loadWC();
         console.log('%c Oh my heavens! Your browser needs polyfills ', 'background: #222; color: #bada55');
     } else {
@@ -71,8 +70,6 @@ var bqPolyloader = function(options) {
 //
 bqPolyloader.prototype._wcSupport = function() {
 
-    var document = this.document;
-
     return ('registerElement' in document && 'import' in document.createElement('link') && 'content' in document.createElement('template'));
 };
 //
@@ -80,10 +77,10 @@ bqPolyloader.prototype._wcSupport = function() {
 //
 bqPolyloader.prototype._loadWC = function() {
 
-    var wcPoly = this.document.createElement('script');
+    var wcPoly = document.createElement('script');
     wcPoly.src = this.urls.wclibrary;
     wcPoly.onload = this._lazyLoadPolymerAndElements();
-    this.document.head.appendChild(wcPoly);
+    document.getElementsByTagName('head')[0].appendChild(wcPoly);
 };
 //
 // Lazy loader elements
@@ -92,12 +89,14 @@ bqPolyloader.prototype._lazyLoadPolymerAndElements = function() {
     
     var self = this;
 
-    if(this.supportWc && this._firstLoad){
-        // Let's use Shadow DOM if we have it, because awesome.
-        window.Polymer = window.Polymer || {};
+    // Let's use Shadow DOM if we have it, because awesome.
+    window.Polymer = window.Polymer || {};
+
+    // default shady-dom
+    if(this.supportWc){
         window.Polymer.dom = 'shadow';
     }
-
+    
     this.coreComponents.forEach(function(elementURL) {
 
         var elImport = self.document.createElement('link');
@@ -107,6 +106,7 @@ bqPolyloader.prototype._lazyLoadPolymerAndElements = function() {
         self.document.head.appendChild(elImport);
 
     });
+   
 };
 //
 // Load Pages Elements method
@@ -154,7 +154,7 @@ bqPolyloader.prototype._sortByPriority = function(){
 
 
 // Version.
-bqPolyloader.VERSION = '0.0.1';
+bqPolyloader.VERSION = '0.0.2';
 
 
 // Expose bqPolyloader and ç identifiers, even in AMD
