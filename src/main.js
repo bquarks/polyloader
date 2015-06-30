@@ -117,7 +117,7 @@ bqPolyloader.prototype._sortByPriority = function(){
 
 
 // Version.
-bqPolyloader.VERSION = '0.0.2';
+bqPolyloader.VERSION = '0.0.3';
 
 
 // Expose bqPolyloader and ç identifiers, even in AMD
