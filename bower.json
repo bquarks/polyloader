@@ -1,6 +1,7 @@
 {
-  "name": "bq-polyloader",
-  "version": "0.0.0",
+  "name": "polyloader",
+  "description" : "Polymer elements lazy loader and Webcomponents support detection.",
+  "version": "0.0.1",
   "main": "dist/bq-polyloader.min.js",
   "ignore": [
     "**/.*",
@@ -8,5 +9,15 @@
     "bower_components",
     "test"
   ],
-  "dependencies": {}
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bquarks/Polyloader.git"
+  },
+  "keywords": [
+  "polymer", "elements", "components", "lazy-load", "loader", "bquarks", "bower", "js", "bq"
+  ],
+  "authors": [
+    "Jorge Serrano <jorge.serrano@bq.com> (http://bq.com)"
+  ]
 }
